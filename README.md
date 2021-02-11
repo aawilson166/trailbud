@@ -139,3 +139,6 @@ index not rendering with mamp
 Get server running:
 composer install
 composer create-project --prefer-dist laravel/laravel:^7.0 trail
+
+
+changed db from trails to trailbud
