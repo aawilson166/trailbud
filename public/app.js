@@ -94,7 +94,7 @@ class App extends React.Component {
             <h2>Create Trail</h2>
             <form onSubmit={this.createTrail}>
                 <input onKeyUp={this.changeNewTrailName} type="text" placeholder="name" /><br/>
-                <input onKeyUp={this.changeNewTrailLocation} type="number" placeholder="location" /><br/>
+                <input onKeyUp={this.changeNewTrailLocation} type="text" placeholder="location" /><br/>
                 <input type="submit" value="Create Trail" />
             </form>
             <h2>List of trails</h2>
@@ -123,3 +123,8 @@ class App extends React.Component {
 
 
 }
+
+ReactDOM.render(
+    <App></App>,
+    document.querySelector('main')
+)
