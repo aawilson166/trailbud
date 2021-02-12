@@ -2,9 +2,9 @@ class App extends React.Component {
     state = {
         name: '',
         location: '',
-        // description: '',
-        // length: '',
-        // image: '',
+        description: '',
+        length: '',
+        image: '',
         trails:[],
     }
 
@@ -102,6 +102,30 @@ class App extends React.Component {
         )
     }
 
+    changeUpdateTrailDescription = (event) => {
+        this.setState(
+            {
+                updateTrailDescription:event.target.value
+            }
+        )
+    }
+
+    changeUpdateTrailLength = (event) => {
+        this.setState(
+            {
+                updateTrailLength:event.target.value
+            }
+        )
+    }
+
+    changeUpdateTrailImage = (event) => {
+        this.setState(
+            {
+                updateTrailImage:event.target.value
+            }
+        )
+    }
+
         componentDidMount = () => {
         axios.get('/api/trails').then(
             (response) => {
@@ -167,6 +191,11 @@ class App extends React.Component {
             <form onSubmit={this.createTrail}>
                 <input onChange={this.changeNewTrailName} type="text" placeholder="name" /><br/>
                 <input onChange={this.changeNewTrailLocation} type="text" placeholder="location" /><br/>
+                <input onChange={this.changeNewTrailDescription} type="text" placeholder="description" /><br/>
+                <input onChange={this.changeNewTrailLength} type="text" placeholder="length" /><br/>
+                <input onChange={this.changeNewTrailImage} type="text" placeholder="image" /><br/>
+
+
                 <input type="submit" value="Create Trail" />
             </form>
             <h2>List of trails</h2>
@@ -183,6 +212,11 @@ class App extends React.Component {
                                 <form id={trail.id} onSubmit={this.updateTrail}>
                                     <input onChange={this.changeUpdateTrailName} type="text" placeholder="name"/><br/>
                                     <input onChange={this.changeUpdateTrailLocation} type="text" placeholder="location"/><br/>
+                                    <input onChange={this.changeUpdateTrailDescription} type="text" placeholder="description"/><br/>
+                                    <input onChange={this.changeUpdateTrailLength} type="text" placeholder="length"/><br/>
+                                    <input onChange={this.changeUpdateTrailImage} type="text" placeholder="image"/><br/>
+
+
                                     <input type="submit" value="Update Trail"/>
                                 </form>
                             </div>
