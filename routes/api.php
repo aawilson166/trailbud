@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 Route::get('trails', function () {
     $trails = DB::select('SELECT * FROM trails ORDER BY id ASC');
@@ -40,3 +40,5 @@ Route::put('trails/{id}', function (Request $request, $id) {
     $trails = DB::select('SELECT * FROM trails ORDER BY id ASC');
     return $trails;
 });
+
+?>

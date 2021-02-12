@@ -155,3 +155,5 @@ composer create-project --prefer-dist laravel/laravel:^7.0 trail
 
 
 changed db from trails to trailbud
+
+added proxy to package.json
