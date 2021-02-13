@@ -198,47 +198,73 @@ class App extends React.Component {
 
     render = () => {
         return <div>
-            <h2>Create Trail</h2>
-            <form onSubmit={this.createTrail}>
-                <input onChange={this.changeNewTrailName} type="text" placeholder="name" /><br/>
-                <input onChange={this.changeNewTrailLocation} type="text" placeholder="location" /><br/>
-                <input onChange={this.changeNewTrailDescription} type="text" placeholder="description" /><br/>
-                <input onChange={this.changeNewTrailLength} type="text" placeholder="length" /><br/>
-                <input onChange={this.changeNewTrailImage} type="text" placeholder="image" /><br/>
-                <input className="btn btn-primary" type="submit" value="Create Trail" />
-            </form>
-            <h2>List of trails</h2>
-            <div className="card mb-3">
-                {
-                    this.state.trails.map(
-                        (trail) => {
-                            return <div key={trail.id}>
-                                <img src={trail.image} alt="img" className="card-img-top"></img>  
-                                <div className="card-body">
-                                    <h5 className="card-title"><b>{trail.name}</b></h5>
-                                    <p className="card-text"><b>Description:</b> {trail.description}</p>
-                                    <div className="card-text">
-                                        <b>Location:</b> {trail.location}, <b>Length:</b> {trail.length}
-                                        <details className="updateCard">
-                                        <summary>Edit Trail</summary>
-                                        <form id={trail.id} onSubmit={this.updateTrail}>
-                                            <input className="update" onChange={this.changeUpdateTrailName} type="text" placeholder="name"/><br/>
-                                            <input className="update" onChange={this.changeUpdateTrailLocation} type="text" placeholder="location"/><br/>
-                                            <input className="update" onChange={this.changeUpdateTrailDescription} type="text" placeholder="description"/><br/>
-                                            <input className="update" onChange={this.changeUpdateTrailLength} type="text" placeholder="length"/><br/>
-                                            <input className="update" onChange={this.changeUpdateTrailImage} type="text" placeholder="image"/><br/>
-                                            <input className="update" className="btn btn-primary" type="submit" value="Update Trail"/>
-                                            <button className="update" className="btn btn-danger"value={trail.id} onClick={this.deleteTrail}>DELETE</button>
-                                        </form>
-                                    </details>
-                                    </div>
-                                </div>                                
-                            </div>                            
+            <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li className="nav-item" role="presentation">
+                    <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+                </li>
+                <li className="nav-item" role="presentation">
+                    <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Trails</button>
+                </li>
+                <li className="nav-item" role="presentation">
+                    <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Add a new trail</button>
+                </li>
+            </ul>
+            <div className="tab-content" id="pills-tabContent">
+                <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div className="home">
+                        <p className="home-info">
+                            Welcome to Trailbud.<br/>
+                            Discover new Overlanding trails to explore and upload info about your favorite trails. If adventure is on your bucket list, this is the App for you!
+                        </p>
+                    </div>
+                </div>
+                <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div className="card mb-3">
+                        {
+                            this.state.trails.map(
+                                (trail) => {
+                                    return <div key={trail.id}>
+                                        <img src={trail.image} alt="img" className="card-img-top"></img>  
+                                        <div className="card-body">
+                                            <h5 className="card-title"><b>{trail.name}</b></h5>
+                                            <p className="card-text"><b>Description:</b> {trail.description}</p>
+                                            <div className="card-text">
+                                                <b>Location:</b> {trail.location}, <b>Length:</b> {trail.length}
+                                                <details className="updateCard">
+                                                    <summary>Edit Trail</summary>
+                                                    <form id={trail.id} onSubmit={this.updateTrail}>
+                                                        <input className="update" onChange={this.changeUpdateTrailName} type="text" placeholder="name"/><br/>
+                                                        <input className="update" onChange={this.changeUpdateTrailLocation} type="text" placeholder="location"/><br/>
+                                                        <input className="update" onChange={this.changeUpdateTrailDescription} type="text" placeholder="description"/><br/>
+                                                        <input className="update" onChange={this.changeUpdateTrailLength} type="text" placeholder="length"/><br/>
+                                                        <input className="update" onChange={this.changeUpdateTrailImage} type="text" placeholder="image"/><br/>
+                                                        <input className="update" className="btn btn-primary" type="submit" value="Update Trail"/>
+                                                        <button className="update" className="btn btn-danger"value={trail.id} onClick={this.deleteTrail}>Delete</button>
+                                                    </form>
+                                                </details>
+                                            </div>
+                                        </div>                                
+                                    </div>                            
+                                }
+                            )
                         }
-                    )
-                }
+                    </div>
+                </div>
+                <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div>
+                        <h2>Create Trail</h2>
+                        <form onSubmit={this.createTrail}>
+                            <input onChange={this.changeNewTrailName} type="text" placeholder="name" /><br/>
+                            <input onChange={this.changeNewTrailLocation} type="text" placeholder="location" /><br/>
+                            <input onChange={this.changeNewTrailDescription} type="text" placeholder="description" /><br/>
+                            <input onChange={this.changeNewTrailLength} type="text" placeholder="length" /><br/>
+                            <input onChange={this.changeNewTrailImage} type="text" placeholder="image" /><br/>
+                            <input className="btn btn-primary" type="submit" value="Create Trail" />
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div>    
     }
 }
 ReactDOM.render(

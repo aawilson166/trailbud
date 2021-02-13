@@ -6,6 +6,13 @@ body {
     margin: 0 auto 0 auto
 }
 
+h1 {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 4rem;
+}
+
 .card-body{
     margin-bottom: 2rem;
 }
@@ -30,3 +37,17 @@ input {
     margin-left: .5rem;
 }
 
+.nav {
+    text-align: center;
+    justify-content: center;
+}
+
+.home-info {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.home {
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
