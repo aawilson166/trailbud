@@ -15,8 +15,12 @@ class App extends React.Component {
             {
                 name:this.state.newTrailName,
                 location:this.state.newTrailLocation,
+                description:this.state.newTrailDescription,
+                length:this.state.newTrailLength,
+                image:this.state.newTrailImage
             }
-        ).then(
+        )
+        .then(
             (response) => {
                 this.setState({
                     trails:response.data
@@ -74,6 +78,9 @@ class App extends React.Component {
             {
                 name:this.state.updateTrailName,
                 location:this.state.updateTrailLocation,
+                description:this.state.updateTrailDescription,
+                length:this.state.updateTrailLength,
+                image:this.state.updateTrailImage,
             }
         ).then(
             (response) => {
@@ -81,6 +88,9 @@ class App extends React.Component {
                     trails:response.data,
                     name:'',
                     location:'',
+                    description: '',
+                    length:'',
+                    image: '',
                 })
             }
         )
@@ -199,17 +209,19 @@ class App extends React.Component {
                 <input type="submit" value="Create Trail" />
             </form>
             <h2>List of trails</h2>
-            <div>
+            <div className="card mb-3">
                 {
                     this.state.trails.map(
                         (trail) => {
                             return <div key={trail.id}>
 
-                                <div>{trail.name}</div>
-                                <div>{trail.location}</div>
-                                <div>{trail.description}</div>
-                                <div>{trail.length}</div>
-                                <img src={trail.image} alt="img"></img>
+                                <img src={trail.image} alt="img" className="card-img-top"></img>  
+                                <div className="card-body">
+                                    <h5 className="card-title">Name: {trail.name}</h5>
+                                    <p className="card-text">Description: {trail.description}</p>
+                                    <p className="card-text">Location: {trail.location}, Length: {trail.length}</p>
+                                </div>
+
 
                                 
 
@@ -226,6 +238,7 @@ class App extends React.Component {
                                     <input type="submit" value="Update Trail"/>
                                 </form>
                             </div>
+                            
                         }
                     )
                 }
