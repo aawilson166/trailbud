@@ -212,6 +212,7 @@ class App extends React.Component {
             <div className="tab-content" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <div className="home">
+                        <img class="home-img" src="https://www.motorbiscuit.com/wp-content/uploads/2020/01/2020-Lexus-460-GX-Overland-luxury-camping-concept-Lexus-03-1024x576.jpg" alt="img"></img>
                         <p className="home-info">
                             Welcome to Trailbud.<br/>
                             Discover new Overlanding trails to explore and upload info about your favorite trails. If adventure is on your bucket list, this is the App for you!
@@ -251,9 +252,9 @@ class App extends React.Component {
                     </div>
                 </div>
                 <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <div>
-                        <h2>Create Trail</h2>
-                        <form onSubmit={this.createTrail}>
+                    <div className="new-trail">
+                        <h2>Add your trail</h2>
+                        <form  onSubmit={this.createTrail}>
                             <input onChange={this.changeNewTrailName} type="text" placeholder="name" /><br/>
                             <input onChange={this.changeNewTrailLocation} type="text" placeholder="location" /><br/>
                             <input onChange={this.changeNewTrailDescription} type="text" placeholder="description" /><br/>
@@ -262,6 +263,7 @@ class App extends React.Component {
                             <input className="btn btn-primary" type="submit" value="Create Trail" />
                         </form>
                     </div>
+                    <img className="new-img" src="https://images.unsplash.com/photo-1509225770129-fbcf8a696c0b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGFub3JhbWF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="img"></img>
                 </div>
             </div>
         </div>    
