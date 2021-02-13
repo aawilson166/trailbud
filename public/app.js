@@ -171,7 +171,7 @@ class App extends React.Component {
 
     // updateTrail = (event) => {
     //     event.preventDefault()
-    //     //event.target.reset()
+    //     event.target.reset()
     //     const id = event.target.id
     //     axios.put('/api/trails/' + id, this.state).then(response => {
     //         this.getTrails()
@@ -183,7 +183,7 @@ class App extends React.Component {
     //         .get('/api/trails/')
     //         .then(
     //         (response) =>
-    //             this.setState({trails: response.data, name: '', location: ''}),
+    //             this.setState({trails: response.data, name: '', location: '', description: '', length: '', image: ''}),
     //         (err) => console.log(err)            
     //     )
     //      .catch((error) => console.error(error))
