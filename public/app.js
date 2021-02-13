@@ -205,7 +205,13 @@ class App extends React.Component {
                         (trail) => {
                             return <div key={trail.id}>
 
-                                {trail.name}: {trail.location}
+                                <div>{trail.name}</div>
+                                <div>{trail.location}</div>
+                                <div>{trail.description}</div>
+                                <div>{trail.length}</div>
+                                <img src={trail.image} alt="img"></img>
+
+                                
 
                                 <button value={trail.id} onClick={this.deleteTrail}>DELETE</button>
 

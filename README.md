@@ -152,8 +152,33 @@ index not rendering with mamp
 Get server running:
 composer install
 composer create-project --prefer-dist laravel/laravel:^7.0 trail
+composer init
 
 
 changed db from trails to trailbud
 
 added proxy to package.json
+
+<div key={trail.id}>
+
+                                <div>{trail.name}</div>
+                                <div>{trail.location}</div>
+                                <div>{trail.description}</div>
+                                <div>{trail.length}</div>
+                                <img src={trail.image} alt="img"></img>
+
+                                
+
+                                <button value={trail.id} onClick={this.deleteTrail}>DELETE</button>
+
+                                <form id={trail.id} onSubmit={this.updateTrail}>
+                                    <input onChange={this.changeUpdateTrailName} type="text" placeholder="name"/><br/>
+                                    <input onChange={this.changeUpdateTrailLocation} type="text" placeholder="location"/><br/>
+                                    <input onChange={this.changeUpdateTrailDescription} type="text" placeholder="description"/><br/>
+                                    <input onChange={this.changeUpdateTrailLength} type="text" placeholder="length"/><br/>
+                                    <input onChange={this.changeUpdateTrailImage} type="text" placeholder="image"/><br/>
+
+
+                                    <input type="submit" value="Update Trail"/>
+                                </form>
+                            </div>
