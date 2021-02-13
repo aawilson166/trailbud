@@ -1,4 +1,32 @@
-/* img {
-    height: 10rem;
-    width: 20rem;
-} */
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center; */
+    margin: 0 auto 0 auto
+}
+
+.card-body{
+    margin-bottom: 2rem;
+}
+
+.card-text {
+    margin-bottom: 0rem;
+}
+
+form {
+    display: flex;
+    margin-right: 1rem;
+    
+}
+
+input {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-right: .5rem;
+    width: 100%;
+    margin-left: .5rem;
+}
+

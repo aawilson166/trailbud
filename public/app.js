@@ -10,6 +10,7 @@ class App extends React.Component {
 
     createTrail = (event) => {
         event.preventDefault();
+        event.target.reset()
         axios.post(
             '/api/trails',
             {
@@ -72,6 +73,7 @@ class App extends React.Component {
 
     updateTrail = (event) => {
         event.preventDefault();
+        event.target.reset();
         const id = event.target.getAttribute('id');
         axios.put(
             '/api/trails/' + id,
@@ -146,7 +148,6 @@ class App extends React.Component {
         )
     }
 
-
     //==========================================================
     //new functions why don't these work?
     //==========================================================
@@ -204,9 +205,7 @@ class App extends React.Component {
                 <input onChange={this.changeNewTrailDescription} type="text" placeholder="description" /><br/>
                 <input onChange={this.changeNewTrailLength} type="text" placeholder="length" /><br/>
                 <input onChange={this.changeNewTrailImage} type="text" placeholder="image" /><br/>
-
-
-                <input type="submit" value="Create Trail" />
+                <input className="btn btn-primary" type="submit" value="Create Trail" />
             </form>
             <h2>List of trails</h2>
             <div className="card mb-3">
@@ -214,41 +213,34 @@ class App extends React.Component {
                     this.state.trails.map(
                         (trail) => {
                             return <div key={trail.id}>
-
                                 <img src={trail.image} alt="img" className="card-img-top"></img>  
                                 <div className="card-body">
-                                    <h5 className="card-title">Name: {trail.name}</h5>
-                                    <p className="card-text">Description: {trail.description}</p>
-                                    <p className="card-text">Location: {trail.location}, Length: {trail.length}</p>
-                                </div>
-
-
-                                
-
-                                <button value={trail.id} onClick={this.deleteTrail}>DELETE</button>
-
-                                <form id={trail.id} onSubmit={this.updateTrail}>
-                                    <input onChange={this.changeUpdateTrailName} type="text" placeholder="name"/><br/>
-                                    <input onChange={this.changeUpdateTrailLocation} type="text" placeholder="location"/><br/>
-                                    <input onChange={this.changeUpdateTrailDescription} type="text" placeholder="description"/><br/>
-                                    <input onChange={this.changeUpdateTrailLength} type="text" placeholder="length"/><br/>
-                                    <input onChange={this.changeUpdateTrailImage} type="text" placeholder="image"/><br/>
-
-
-                                    <input type="submit" value="Update Trail"/>
-                                </form>
-                            </div>
-                            
+                                    <h5 className="card-title"><b>{trail.name}</b></h5>
+                                    <p className="card-text"><b>Description:</b> {trail.description}</p>
+                                    <div className="card-text">
+                                        <b>Location:</b> {trail.location}, <b>Length:</b> {trail.length}
+                                        <details className="updateCard">
+                                        <summary>Edit Trail</summary>
+                                        <form id={trail.id} onSubmit={this.updateTrail}>
+                                            <input className="update" onChange={this.changeUpdateTrailName} type="text" placeholder="name"/><br/>
+                                            <input className="update" onChange={this.changeUpdateTrailLocation} type="text" placeholder="location"/><br/>
+                                            <input className="update" onChange={this.changeUpdateTrailDescription} type="text" placeholder="description"/><br/>
+                                            <input className="update" onChange={this.changeUpdateTrailLength} type="text" placeholder="length"/><br/>
+                                            <input className="update" onChange={this.changeUpdateTrailImage} type="text" placeholder="image"/><br/>
+                                            <input className="update" className="btn btn-primary" type="submit" value="Update Trail"/>
+                                            <button className="update" className="btn btn-danger"value={trail.id} onClick={this.deleteTrail}>DELETE</button>
+                                        </form>
+                                    </details>
+                                    </div>
+                                </div>                                
+                            </div>                            
                         }
                     )
                 }
             </div>
         </div>
     }
-
-
 }
-
 ReactDOM.render(
     <App></App>,
     document.querySelector('main')
