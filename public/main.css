@@ -78,3 +78,16 @@ input {
     margin-right: auto;
 
 }
+
+.footer-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    list-style-type: none;
+}
+
+.footer {
+
+}

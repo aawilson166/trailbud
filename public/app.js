@@ -266,6 +266,21 @@ class App extends React.Component {
                     <img className="new-img" src="https://images.unsplash.com/photo-1509225770129-fbcf8a696c0b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGFub3JhbWF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="img"></img>
                 </div>
             </div>
+            <footer>
+                <ul className="footer-card">
+                    <li className="footer">Developer: Aaron Wilson</li>
+                    <li className="footer">
+                        <a href="">Portfolio</a>
+                    </li>
+                    <li>                        
+                        <a href="https://www.linkedin.com/in/aaronwilson166">Linkedin</a>       
+                    </li>
+                    <li className="footer">
+                        <a href="https://github.com/aawilson166">Github</a>
+                    </li>
+
+                </ul>
+            </footer>
         </div>    
     }
 }
