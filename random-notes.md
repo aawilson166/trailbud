@@ -133,3 +133,6 @@ added proxy to package.json
         </div>
     }
 }
+
+Creating app... done, ⬢ cryptic-falls-25814
+https://cryptic-falls-25814.herokuapp.com/ | https://git.heroku.com/cryptic-falls-25814.git
